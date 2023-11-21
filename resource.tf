@@ -9,6 +9,7 @@ resource "vault_gcp_secret_backend" "gcp" {
 
 resource "vault_gcp_secret_roleset" "roleset" {
   backend      = vault_gcp_secret_backend.gcp.path
+  service_account_email = "junaid.sharif104@gmail.com"
   roleset      = "project_viewer"
   secret_type  = "access_token"
   project      = local.project
