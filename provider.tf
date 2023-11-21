@@ -1,4 +1,4 @@
 provider "vault"{
-    address="https://vault-cluster-public-vault-d13b0bd2.b4a37a92.z1.hashicorp.cloud:8200"
-    token="hvs.CAESIG4CZwP7dWDl1i0vh8jSaoerGxSLhPCvyHfCZ8IsCcedGicKImh2cy5TMUcwcDRkTW9ad1U0RHFkdndqN3dYTGUuTEhrUm8QygY"
+    address="https://vault-cluster-public-vault-1226856c.9f3a2651.z1.hashicorp.cloud:8200"
+    token="hvs.CAESIMzufKHbQI09rVgoXnrUrfA2W8ZEeM2lXLL3EUIgk2uFGicKImh2cy5hQlpvcWZJdXdJWDY4bXIxWWxDZktBZUYuWlNIOW0QjQE"
 }
