@@ -27,10 +27,7 @@ resource "vault_auth_backend" "gcp" {
   type = "gcp"
 }
 
-resource "vault_gcp_auth_backend_config" "config" {
-  backend      = vault_auth_backend.gcp.path
-  credentials  = file("credentials.json")
-}
+
 
 resource "vault_gcp_auth_backend_role" "my_role" {
   backend     = vault_auth_backend.gcp.path
