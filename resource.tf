@@ -36,7 +36,7 @@ resource "vault_gcp_auth_backend_role" "my_role" {
   backend     = vault_auth_backend.gcp.path
   role        = "my-role"
   type        = "iam"
-  policies    = ["default"]
+  token_policies  = ["default"]
   bound_service_accounts = ["VaultServiceAccount@charming-hearth-404722.iam.gserviceaccount.com"]
 }
 
