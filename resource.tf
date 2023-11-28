@@ -8,7 +8,7 @@ resource "vault_gcp_secret_backend" "gcp" {
 }
 
 resource "vault_gcp_secret_roleset" "roleset" {
-  backend      = vault_gcp_secret_backend.gcp.path
+  backend      = vault_gcp_secret_backend.gcp.path 
   roleset      = "project_viewer"
   secret_type  = "access_token"
   project      = local.project
@@ -22,6 +22,17 @@ resource "vault_gcp_secret_roleset" "roleset" {
     ]
   }
 }
+
+resource "vault_gcp_auth_backend" "gcp" { 
+  credentials  = file("credentials.json")
+  custom_endpoint = {
+    api = "www.googleapis.com"
+    iam = "iam.googleapis.com"
+    crm     = "cloudresourcemanager.googleapis.com"
+    compute = "compute.googleapis.com"
+  }
+}
+
 
 # resource "vault_auth_backend" "gcp" {
 #   path = "gcp"
