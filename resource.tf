@@ -34,37 +34,14 @@ resource "vault_gcp_auth_backend" "gcp" {
 }
 
 
-
-
-
-#resource "vault_auth_backend" "gcp" {
-#  type = "gcp"
-#}
-
-
-
-#resource "vault_gcp_auth_backend_role" "my_role" {
-#  backend     = vault_auth_backend.gcp.path
-#  role        = "my-role"
-#  type        = "iam"
-#  token_policies  = ["default"]
-#  bound_service_accounts = ["VaultServiceAccount@charming-hearth-404722.iam.gserviceaccount.com"]
-#}
-
-
-# resource "vault_auth_backend" "gcp" {
-#   path = "gcp"
-#   type = "gcp"
-# }
-
-# resource "vault_gcp_auth_backend_role" "test" {
-#   backend                = vault_auth_backend.gcp.path
-#   role                   = "test"
-#   type                   = "iam"
-#   bound_service_accounts = ["test"]
-#   bound_projects         = ["test"]
-#   token_ttl              = 300
-#   token_max_ttl          = 600
-#   token_policies         = ["default"]
-#   add_group_aliases      = true
-# }
+resource "vault_gcp_auth_backend_role" "test" {
+  backend                = vault_auth_backend.gcp.path
+  role                   = "Ower"
+  type                   = "iam"
+  bound_service_accounts = ["VaultServiceAccount@charming-hearth-404722.iam.gserviceaccount.com"]
+  bound_projects         = ["charming-hearth-404722"]
+  token_ttl              = 300
+  token_max_ttl          = 600
+  token_policies         = ["default"]
+  add_group_aliases      = true
+}
