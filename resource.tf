@@ -22,10 +22,7 @@ resource "vault_gcp_secret_roleset" "roleset" {
     ]
   }
 }
-resource "vault_auth_backend" "gcp" {
-  path = "gcp"
-  type = "gcp"
-}
+
 resource "vault_gcp_auth_backend" "gcp" { 
   credentials  = file("credentials.json")
   custom_endpoint {
@@ -38,7 +35,7 @@ resource "vault_gcp_auth_backend" "gcp" {
 
 
 resource "vault_gcp_auth_backend_role" "test" {
-  backend                = vault_auth_backend.gcp.path
+  backend                = vault_gcp_auth_backend.gcp.path
   role                   = "Ower"
   type                   = "iam"
   bound_service_accounts = ["VaultServiceAccount@charming-hearth-404722.iam.gserviceaccount.com"]
