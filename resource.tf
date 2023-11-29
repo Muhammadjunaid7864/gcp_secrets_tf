@@ -37,7 +37,7 @@ resource "vault_gcp_auth_backend" "gcp" {
 resource "vault_gcp_auth_backend_role" "test" {
   backend                = vault_gcp_auth_backend.gcp.path
   role                   = "Owner"
-  type                   = "gcp"
+  type                   = "gce"
   bound_service_accounts = ["VaultServiceAccount@charming-hearth-404722.iam.gserviceaccount.com"]
   bound_projects         = ["charming-hearth-404722"]
   token_ttl              = 300
