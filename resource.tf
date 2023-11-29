@@ -23,19 +23,34 @@ resource "vault_gcp_secret_roleset" "roleset" {
   }
 }
 
-resource "vault_auth_backend" "gcp" {
-  type = "gcp"
+resource "vault_gcp_auth_backend" "gcp" { 
+  credentials  = file("credentials.json")
+  namespace ="admin"
+  custom_endpoint = {
+    api     = "www.googleapis.com"
+    iam     = "iam.googleapis.com"
+    crm     = "cloudresourcemanager.googleapis.com"
+    compute = "compute.googleapis.com"
+  }
 }
 
 
 
-resource "vault_gcp_auth_backend_role" "my_role" {
-  backend     = vault_auth_backend.gcp.path
-  role        = "my-role"
-  type        = "iam"
-  token_policies  = ["default"]
-  bound_service_accounts = ["VaultServiceAccount@charming-hearth-404722.iam.gserviceaccount.com"]
-}
+
+
+#resource "vault_auth_backend" "gcp" {
+#  type = "gcp"
+#}
+
+
+
+#resource "vault_gcp_auth_backend_role" "my_role" {
+#  backend     = vault_auth_backend.gcp.path
+#  role        = "my-role"
+#  type        = "iam"
+#  token_policies  = ["default"]
+#  bound_service_accounts = ["VaultServiceAccount@charming-hearth-404722.iam.gserviceaccount.com"]
+#}
 
 
 # resource "vault_auth_backend" "gcp" {
