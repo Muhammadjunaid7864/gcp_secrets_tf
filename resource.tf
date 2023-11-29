@@ -22,7 +22,10 @@ resource "vault_gcp_secret_roleset" "roleset" {
     ]
   }
 }
-
+resource "vault_auth_backend" "gcp" {
+  path = "gcp"
+  type = "gcp"
+}
 resource "vault_gcp_auth_backend" "gcp" { 
   credentials  = file("credentials.json")
   custom_endpoint {
