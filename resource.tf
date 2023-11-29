@@ -26,7 +26,7 @@ resource "vault_gcp_secret_roleset" "roleset" {
 resource "vault_gcp_auth_backend" "gcp" { 
   credentials  = file("credentials.json")
   namespace ="admin"
-  custom_endpoint = {
+  custom_endpoint {
     api     = "www.googleapis.com"
     iam     = "iam.googleapis.com"
     crm     = "cloudresourcemanager.googleapis.com"
